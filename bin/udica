@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+docker run --user root --privileged -i --rm \
+  -v ${PWD}:/data \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /sys/fs/selinux:/sys/fs/selinux \
+  -v /etc/selinux/:/etc/selinux/ \
+  -v /etc/selinux/:/var/lib/selinux/ \
+  --name=udica \
+  -w /data \
+  udica ${@}
